@@ -64,4 +64,18 @@ public class MainController {
 
     }
 
+    @GetMapping("/get_trade/{id}")
+    public TradeModel getTrade(@PathVariable int id) {
+
+        return trade_repo.findById(id).get();
+
+    }
+
+    @PostMapping("/add_trade")
+    public TradeModel addTrade(@RequestBody TradeModel trade) {
+
+        return trade_repo.save(trade);
+
+    }
+
 }
